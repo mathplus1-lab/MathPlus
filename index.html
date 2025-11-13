@@ -8,118 +8,62 @@
   body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #d0f0fd, #ffffff);
-    color: #333;
-    text-align: center;
-    overflow: hidden;
-  }
-  .container {
-    position: relative;
-    z-index: 10;
-    max-width: 600px;
-    margin: 150px auto;
-    background: rgba(255,255,255,0.95);
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    transition: transform 0.5s;
-  }
-  .container:hover {
-    transform: translateY(-10px) scale(1.02);
+    background: linear-gradient(to bottom right, #dbeafe, #ffffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #1e3a8a;
   }
   h1 {
-    font-size: 2.5em;
-    color: #1e3a8a;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
   }
-  p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-  }
-  input[type='text'] {
-    width: 80%;
-    padding: 12px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-  }
-  button {
+  .btn {
     background-color: #1e3a8a;
     color: white;
-    padding: 12px 30px;
+    padding: 15px 30px;
+    margin: 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    font-size: 1.2rem;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    transition: transform 0.2s, background-color 0.3s;
+    text-decoration: none;
   }
-  button:hover {
+  .btn:hover {
     background-color: #3b82f6;
     transform: scale(1.05);
   }
-  .icon {
-    width: 24px;
-    height: 24px;
+  .icons {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
   }
-  /* Décorations 3D simples */
-  .decor {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #ffcc00, #ff9900);
-    border-radius: 10px;
-    top: 20%;
-    left: 10%;
-    transform: rotateX(20deg) rotateY(25deg);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    z-index: 1;
+  .icons img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s;
   }
-  .decor2 {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #00ccff, #0099ff);
-    border-radius: 50%;
-    top: 50%;
-    right: 15%;
-    transform: rotateX(30deg) rotateY(-15deg);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    z-index: 1;
+  .icons img:hover {
+    transform: rotate(20deg) scale(1.2);
   }
 </style>
 </head>
 <body>
 
-<div class="decor"></div>
-<div class="decor2"></div>
+<h1>Bienvenue à MathÉcole</h1>
 
-<div class="container" id="loginContainer">
-  <h1>Bienvenue à MathÉcole</h1>
-  <p>Entrez votre nom pour accéder aux exercices :</p>
-  <input type="text" id="username" placeholder="Nom d'utilisateur">
-  <br>
-  <button id="loginBtn">
-    <img class="icon" src="https://img.icons8.com/ios-filled/50/login-rounded-right.png" alt="icon"> Se connecter
-  </button>
+<a href="Algebre.html" class="btn">Exercices d’Algèbre</a>
+<a href="Geometrie.html" class="btn">Exercices de Géométrie</a>
+
+<div class="icons">
+  <img src="https://img.icons8.com/fluency/96/triangle.png" alt="Triangle">
+  <img src="https://img.icons8.com/fluency/96/ruler.png" alt="Règle">
+  <img src="https://img.icons8.com/fluency/96/calculator.png" alt="Calculatrice">
 </div>
-
-<script>
-// Redirection vers la page Algèbre
-document.getElementById('loginBtn').addEventListener('click', () => {
-  const username = document.getElementById('username').value.trim();
-  if(username !== '') {
-    window.location.href = 'algebre.html';
-  } else {
-    alert('Veuillez entrer un nom valide');
-  }
-});
-</script>
 
 </body>
 </html>
