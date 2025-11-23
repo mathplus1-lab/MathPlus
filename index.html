@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cours et Exercices de Mathématiques - 3ème</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
 
@@ -22,7 +23,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     header h1 {
@@ -30,7 +30,7 @@
       background: linear-gradient(135deg, #3399ff, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 8px rgba(51,153,255,0.5), 0 0 6px rgba(255,255,255,0.3);
+      text-shadow: 0 0 8px rgba(51,153,255,0.5);
     }
 
     nav a {
@@ -38,37 +38,15 @@
       margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      cursor: pointer;
+      transition: .3s;
     }
 
-    nav a:hover {
-      color: #3399ff;
-    }
+    nav a:hover { color: #3399ff; }
 
-    section {
-      padding: 50px;
-      min-height: 80vh;
-    }
+    section { padding: 50px; min-height: 80vh; }
 
-    h2 {
-      color: #3399ff;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    p {
-      line-height: 1.8;
-      font-size: 1.1em;
-      color: #ffffff;
-    }
-
-    input[type=text] {
-      padding: 8px;
-      border-radius: 6px;
-      border: none;
-      margin-right: 10px;
-      font-size: 1em;
-    }
+    h2 { color: #3399ff; font-size: 2em; }
 
     .exercise {
       background: rgba(51,153,255,0.1);
@@ -81,145 +59,121 @@
     button {
       background: linear-gradient(90deg, #3399ff, #ffffff);
       border: none;
-      color: #001f4d;
       padding: 12px 24px;
       border-radius: 10px;
       font-weight: bold;
+      color: #000;
       cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      margin-top: 10px;
+      transition: .3s;
     }
 
-    button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    }
+    button:hover { transform: scale(1.1); }
 
     .hidden { display: none; }
+
+    .fadeInPage {
+      opacity: 0;
+      animation: fade .6s forwards;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     footer {
       text-align: center;
       padding: 25px;
+      background: rgba(0,0,0,0.4);
       border-top: 2px solid #3399ff;
-      background: rgba(0,0,0,0.5);
-      color: #ffffff;
-      font-size: 0.95em;
-    }
-
-    .bg-orbs {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, #3399ff55, #ffffff55);
-      animation: float 12s infinite alternate;
-    }
-
-    @keyframes float {
-      from { transform: translateY(0) rotate(0deg); }
-      to { transform: translateY(-60px) rotate(360deg); }
-    }
-
-    .fadeInPage { opacity: 0; animation: fadeInPageAnim 0.8s forwards; }
-    @keyframes fadeInPageAnim { from { opacity:0; transform: translateY(20px);} to{opacity:1; transform:translateY(0);} }
-
-    pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 10px; overflow-x:auto; }
-
-    /* Carte de l'encadrement */
-    .mentor-card {
-      border: 2px solid #3399ff;
-      border-radius: 15px;
-      padding: 15px 25px;
-      background: rgba(51,153,255,0.1);
-      box-shadow: 0 0 20px rgba(51,153,255,0.5);
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #ffffff;
-      font-weight: bold;
     }
   </style>
 </head>
-<body>
 
-<div class="bg-orbs">
-  <div class="orb" style="width:200px;height:200px;left:10%;top:70%;animation-duration:18s;"></div>
-  <div class="orb" style="width:150px;height:150px;right:15%;top:30%;animation-duration:14s;"></div>
-  <div class="orb" style="width:100px;height:100px;left:40%;top:10%;animation-duration:20s;"></div>
-</div>
+<body>
 
 <header>
   <h1>🧮 Cours et Exercices de Maths</h1>
   <nav>
-    <a href="#" onclick="showPage('lessons')">Cours</a>
-    <a href="#" onclick="showPage('exercises')">Exercices</a>
-    <a href="#" onclick="showPage('developers')">Développeurs</a>
+    <a onclick="showPage('lessons')">Cours</a>
+    <a onclick="showPage('exercises')">Exercices</a>
+    <a onclick="showPage('serie')">Série</a>
+    <a onclick="showPage('developers')">Développeurs</a>
   </nav>
 </header>
 
+<!-- COURS -->
 <section id="lessons" class="fadeInPage">
   <h2>Cours de Mathématiques - 3ème</h2>
-  <p><b>Théorème de Thalès :</b> Si deux droites sont coupées par des parallèles, alors les rapports des longueurs correspondantes sont égaux.</p>
-  <p><b>Racine carrée :</b> La racine carrée d’un nombre est le nombre qui, multiplié par lui-même, donne ce nombre.</p>
-  <p><b>Ordre des opérations :</b> On effectue d’abord les parenthèses, puis les puissances/racines, ensuite la multiplication et la division, et enfin l’addition et la soustraction.</p>
+  <p><b>• Équations :</b> Résolution d’équations simples.</p>
+  <p><b>• Proportions :</b> Pourcentages et règles de trois.</p>
+  <p><b>• Géométrie :</b> Aires, périmètres, symétries.</p>
+  <p><b>• Racines carrées :</b> Utilisation et propriétés.</p>
+  <p><b>• Fractions :</b> Calculs et simplifications.</p>
+  <p><b>• Statistiques :</b> Moyenne, médiane, probabilités.</p>
 </section>
 
+<!-- QUIZ -->
 <section id="exercises" class="hidden">
-  <h2>Exercices interactifs - 3ème</h2>
-  <p>Entrez votre nom pour suivre vos résultats :</p>
+  <h2>Exercices de Mathématiques - Quiz</h2>
+
+  <p>Entrez votre nom :</p>
   <input type="text" id="studentName" placeholder="Votre nom">
-  <button onclick="startQuiz()">Commencer le quiz</button>
+
+  <button onclick="startQuiz()">Commencer</button>
+
   <div id="quiz" style="margin-top:20px;"></div>
-  <button id="checkBtn" onclick="checkAnswers()" class="hidden">Vérifier les réponses</button>
-  <p id="result" style="margin-top:20px;color:#3399ff;"></p>
-  <p id="progress" style="margin-top:10px;color:#ffffff;"></p>
+
+  <button id="checkBtn" class="hidden" onclick="checkAnswers()">Vérifier</button>
+
+  <p id="result" style="color:#3399ff;"></p>
+  <p id="progress"></p>
 </section>
 
+<!-- SERIE -->
+<section id="serie" class="hidden">
+  <h2>Série d'exercices</h2>
+
+  <div class="exercise">
+    <h3>Exercice 1</h3>
+    <p>1) a. Comparer : √57 et 6,55</p>
+    <p>b. Déduire une comparaison entre 1/(√57) et 1/(6,55)</p>
+
+    <p>2) Soient a, b et c réels tels que : 3 ≤ b ≤ 4 , 8 ≤ c ≤ 13</p>
+    <p>a. Encadrer : a + b – c ; a × b ; b² ; a² + b²</p>
+    <p>b. Montrer que : 1 &lt; √((a + b) / c) &lt; 4</p>
+  </div>
+
+  <div class="exercise">
+    <h3>Exercice 2</h3>
+    <p>On considère la figure suivante avec : AE = 8 cm, AB = 5 cm, BC = 4 cm</p>
+    <p>1) Calculer EF</p>
+    <p>2) Soient M ∈ [AE] et N ∈ [BC]</p>
+    <p>3) Sachant que RM = 4 cm et RN = 6 cm :</p>
+    <p>a. Montrer que (MN) ∥ (AE)</p>
+    <p>b. Montrer que AE &lt; MN</p>
+  </div>
+</section>
+
+<!-- DEVELOPPEURS -->
 <section id="developers" class="hidden">
   <h2>Développeurs</h2>
-  <p class="developer-name">Adam Hassis</p>
-  <p class="developer-name">Abderrahman Saghiri</p>
-  <div class="mentor-card">Encadré par Mme Manal</div>
+  <p>Adam Hassiss</p>
+  <p>Abderrahman Saghiri</p>
 </section>
 
 <footer>
-  <p>
-    Ce site est éducatif pour les élèves de 3ème,<br>
-    créé par deux étudiants de l'école Ahmed Najai.
-  </p>
+  Site éducatif pour les élèves de 3ème — École Ahmed Najai.
 </footer>
 
 <script>
 let mathQuestions = [
-  {q:"Calculez √49", a:"7", options:["6","7","8"]},
-  {q:"Calculez √100", a:"10", options:["9","10","11"]},
-  {q:"Simplifiez √75", a:"5√3", options:["3√5","5√3","15"]},
-  {q:"Résoudre x²=81", a:"9", options:["8","9","10"]},
-  {q:"Calculez √36 + √64", a:"14", options:["10","12","14"]},
-  {q:"Simplifiez √200", a:"10√2", options:["10√2","20√2","5√2"]},
-  {q:"Si AB/AD = AE/AC, alors les droites (BC) et (ED) sont :", a:"parallèles", options:["parallèles","sécantes","perpendiculaires"]},
-  {q:"Dans le théorème de Thalès, les droites doivent être :", a:"parallèles", options:["parallèles","perpendiculaires","aucune"]},
-  {q:"Si AB=3, AD=6, AE=4, calculez AC selon Thalès.", a:"8", options:["8","6","9"]},
-  {q:"Si AB/AD=1/2 et AE=5, alors AC=", a:"10", options:["5","10","15"]},
-  {q:"Calculez (√9)²", a:"9", options:["3","9","6"]},
-  {q:"Résoudre x²=25", a:"5", options:["5","10","2"]},
-  {q:"Simplifiez √8", a:"2√2", options:["4√2","2√2","8"]},
-  {q:"Si dans un triangle ABC, DE || BC, alors selon Thalès :", a:"AD/AB = AE/AC", options:["AD/AE=AB/AC","AD/AB=AE/AC","AE/AD=AC/AB"]},
-  {q:"Calculez √121", a:"11", options:["10","11","12"]},
-  {q:"Calculez √16 + 2²", a:"8", options:["6","8","10"]},
-  {q:"Ordre des opérations: 2 + 3 × 4 =", a:"14", options:["20","14","24"]},
-  {q:"Ordre des opérations: (2 + 3) × 4 =", a:"20", options:["14","20","24"]},
-  {q:"Simplifiez √18", a:"3√2", options:["6√3","3√2","9√2"]},
-  {q:"Résoudre 2x + 3 = 9", a:"3", options:["2","3","4"]}
+  {q: "Calculez √81", a: "9", options:["8","9","7"]},
+  {q: "Calculez √144", a: "12", options:["10","12","14"]},
+  {q: "x² = 49 → x ?", a: "7", options:["6","7","8"]},
+  {q: "√196 = ?", a: "14", options:["12","14","16"]},
+  {q: "x² = 64 → x ?", a: "8", options:["6","8","10"]},
+  {q: "√121 + √9 = ?", a: "22", options:["20","22","24"]},
 ];
 
 let studentScores = {};
@@ -227,50 +181,58 @@ let currentStudent = "";
 let quizStarted = false;
 
 function startQuiz() {
-  const nameInput = document.getElementById("studentName").value.trim();
-  if (!nameInput) { alert("Veuillez entrer votre nom."); return; }
-  currentStudent = nameInput;
+  const name = document.getElementById("studentName").value.trim();
+  if (!name) return alert("Veuillez entrer votre nom.");
+
+  currentStudent = name;
   if (!studentScores[currentStudent]) studentScores[currentStudent] = 0;
 
   const quizDiv = document.getElementById("quiz");
   quizDiv.innerHTML = "";
+
   mathQuestions.forEach((item, i) => {
-    const div = document.createElement("div");
-    div.className = "exercise";
-    div.innerHTML = `
-      <p><b>${i+1}. ${item.q}</b></p>
-      ${item.options.map(opt => `
-        <label><input type='radio' name='q${i}' value='${opt}'> ${opt}</label><br>
-      `).join('')}
+    let block = `
+      <div class="exercise">
+        <p><b>${i+1}. ${item.q}</b></p>
+        ${item.options.map(opt => `
+          <label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>
+        `).join('')}
+      </div>
     `;
-    quizDiv.appendChild(div);
+    quizDiv.innerHTML += block;
   });
+
   document.getElementById("checkBtn").classList.remove("hidden");
-  document.getElementById("result").textContent = "";
-  document.getElementById("progress").textContent = `Progression actuelle de ${currentStudent}: ${studentScores[currentStudent]} points`;
+  document.getElementById("progress").textContent =
+    `Score total de ${currentStudent}: ${studentScores[currentStudent]} points`;
+
   quizStarted = true;
 }
 
 function checkAnswers() {
   if (!quizStarted) return;
+
   let score = 0;
+
   mathQuestions.forEach((item, i) => {
-    const selected = document.querySelector(`input[name='q${i}']:checked`);
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
     if (selected && selected.value === item.a) score++;
   });
+
   studentScores[currentStudent] += score;
-  document.getElementById("result").textContent = `${currentStudent}, vous avez obtenu ${score} / ${mathQuestions.length} points pour ce quiz.`;
-  document.getElementById("progress").textContent = `Score total de ${currentStudent}: ${studentScores[currentStudent]} points`;
+
+  document.getElementById("result").textContent =
+    `${currentStudent}, vous avez obtenu ${score} / ${mathQuestions.length} points !`;
+
+  document.getElementById("progress").textContent =
+    `Score total de ${currentStudent}: ${studentScores[currentStudent]} points`;
 }
 
 function showPage(id) {
   document.querySelectorAll("section").forEach(s => {
     s.classList.add("hidden");
-    s.classList.remove("fadeInPage");
   });
-  const page = document.getElementById(id);
-  page.classList.remove("hidden");
-  page.classList.add("fadeInPage");
+  document.getElementById(id).classList.remove("hidden");
 }
 </script>
 
